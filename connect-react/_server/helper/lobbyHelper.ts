@@ -1,4 +1,4 @@
-let COUNT = 0;
+let COUNT = 101;
 export function genLobbyId() {
     return `${COUNT++}`;
 }

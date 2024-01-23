@@ -18,13 +18,14 @@ const io = new Server(server, {
 const users = new Users();
 
 io.on('connection', (socket: Socket) => {
-  console.log('connect', socket);
+  console.log('connect', socket.id);
   users.add("name", socket);
   socket.on("disconnect", () => {
     console.log("user disconnected");
+    users.remove(socket.id)
   })
 });
 
-server.listen(3000, () => {
+server.listen(8000, () => {
     console.log('listening on http://localhost:8000');
 });
