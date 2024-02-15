@@ -20,10 +20,15 @@ export class Users {
         })
 
         socket.on("answer",({sdp, lobbyId}: {sdp: string, lobbyId: string}) => {
+            console.log('on answer======', lobbyId);
+
             this.connection.onAnswer(lobbyId, sdp, socket.id);
         })
 
         socket.on("add-ice-candidate", ({candidate, lobbyId, type}) => {
+            
+            console.log('on add-ice-candidate======', lobbyId);
+
             this.connection.onIceCandidates(lobbyId, socket.id, candidate, type);
         });
     }
